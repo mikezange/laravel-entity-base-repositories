@@ -1,0 +1,31 @@
+{
+    "name": "mike-zange/laravel-entity-base-repositories",
+    "description": "Simple base repositories for Laravel's Eloquent ORM, this packages abstracts the base Model functions and adds a caching decorator",
+    "keywords": ["laravel", "model", "repository"],
+    "type": "library",
+    "require": {
+        "php": "^7.1.3",
+        "laravel/framework": "~5.6"
+    },
+    "autoload": {
+        "psr-4": {
+            "MikeZange\\LaravelEntityRepositories\\": "src/"
+        }
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Mike Zange",
+            "email": "mike.zange.1@gmail.com"
+        }
+    ],
+    "prefer-stable": true,
+    "minimum-stability": "dev",
+    "extra": {
+        "laravel": {
+            "providers": [
+                "MikeZange\\LaravelEntityRepositories\\Providers\\RepositoryServiceProvider"
+            ]
+        }
+    }
+}
