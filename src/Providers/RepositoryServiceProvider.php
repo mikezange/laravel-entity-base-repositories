@@ -14,7 +14,7 @@ class RepositoryServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->publishes([
-            __DIR__.'/../config/repository.php' => config_path('repository.php'),
+            __DIR__.'/../../config/repository.php' => config_path('repository.php'),
         ]);
     }
 
@@ -25,7 +25,7 @@ class RepositoryServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->mergeConfigFrom(__DIR__.'/../config/repository.php', 'repository');
+        $this->mergeConfigFrom(__DIR__.'/../../config/repository.php', 'repository');
 
         foreach (config('repository.repositories') as $repo) {
             $this->bindRepository(
