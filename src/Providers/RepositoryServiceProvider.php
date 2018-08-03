@@ -3,6 +3,7 @@
 namespace MikeZange\LaravelEntityRepositories\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use MikeZange\LaravelEntityRepositories\Commands\GenerateRepositoryCommand;
 
 class RepositoryServiceProvider extends ServiceProvider
 {
@@ -35,6 +36,8 @@ class RepositoryServiceProvider extends ServiceProvider
                 $repo['cache_decorator']
             );
         }
+
+        $this->registerCommands();
     }
 
     private function bindRepository($repository, $entity, $eloquentRepository, $cacheDecorator)
@@ -51,5 +54,12 @@ class RepositoryServiceProvider extends ServiceProvider
 
             return $this->app->makeWith($cacheDecorator, ['repository' => $repository]);
         });
+    }
+
+    private function registerCommands()
+    {
+        $this->commands([
+            GenerateRepositoryCommand::class
+        ]);
     }
 }

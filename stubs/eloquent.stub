@@ -1,0 +1,10 @@
+<?php
+
+namespace {{ namespace }}\Eloquent;
+
+use {{ namespace }}\{{ repository }};
+use MikeZange\LaravelEntityRepositories\Repositories\Eloquent\EloquentBaseRepository;
+
+class Eloquent{{ repository }} extends EloquentBaseRepository implements {{ repository }}
+{
+}

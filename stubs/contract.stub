@@ -1,0 +1,9 @@
+<?php
+
+namespace {{ namespace }};
+
+use MikeZange\LaravelEntityRepositories\Repositories\BaseRepository;
+
+interface {{ repository }} extends BaseRepository
+{
+}
