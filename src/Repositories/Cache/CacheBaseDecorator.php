@@ -2,7 +2,7 @@
 
 namespace MikeZange\LaravelEntityRepositories\Repositories\Cache;
 
-use Illuminate\Cache\Repository;
+use Illuminate\Contracts\Cache\Repository;
 use Illuminate\Config\Repository as ConfigRepository;
 use Illuminate\Database\Eloquent\Builder;
 use MikeZange\LaravelEntityRepositories\Repositories\BaseRepository;
@@ -35,7 +35,7 @@ abstract class CacheBaseDecorator implements BaseRepository
     {
         $this->cache = app(Repository::class);
         $this->cacheTime = app(ConfigRepository::class)->get('repository.cache.time', 60);
-        $this->locale = app()->getLocale();
+        $this->locale = app('translator')->getLocale();
     }
 
     public function queryBuilder(): Builder
