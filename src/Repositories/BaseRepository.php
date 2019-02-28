@@ -33,7 +33,7 @@ interface BaseRepository
     /**
      * Find a resource by the given slug
      * @param  string $slug
-     * @return $model
+     * @return Builder|Model|object|null $model
      */
     public function findBySlug($slug);
 
@@ -53,6 +53,23 @@ interface BaseRepository
      */
     public function allByAttributes(array $attributes, $orderBy = null, $sortOrder = 'asc');
 
+
+    /**
+     * Eager load relationships
+     * Should be chained with other methods such as get()
+     * @param $relations
+     * @return Builder
+     */
+    public function with($relations);
+
+    /**
+     * Prevent Eager loading of relationships
+     * Should be chained with other methods such as get()
+     * @param $relations
+     * @return Builder
+     */
+    public function without($relations);
+
     /**
      * Find the models with a relationship
      * @param $relationship
@@ -62,12 +79,10 @@ interface BaseRepository
 
     /**
      * Paginate the model to $perPage items per page
-     *
      * @param  int $perPage
      * @param array $columns
      * @param string $pageName
      * @param null $page
-     *
      * @return \Illuminate\Pagination\LengthAwarePaginator
      */
     public function paginate($perPage = 15, $columns = ['*'], $pageName = 'page', $page = null);

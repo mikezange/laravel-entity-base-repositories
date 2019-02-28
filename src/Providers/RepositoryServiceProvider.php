@@ -30,9 +30,9 @@ class RepositoryServiceProvider extends ServiceProvider
 
         foreach (config('repository.repositories') as $repo) {
             $this->bindRepository(
-                $repo['contract'],
+                $repo['concrete'],
                 $repo['entity'],
-                $repo['eloquent_repository'],
+                $repo['repository'],
                 $repo['cache_decorator']
             );
         }

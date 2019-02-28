@@ -61,6 +61,7 @@ class GenerateRepositoryCommand extends Command
             'entity' => $entity,
             'namespace' => ($this->option('namespace') ?? "App\Repositories"),
             'repository' => $this->option('repository') ?? "{$repositoryDefault}Repository",
+            'decorator' => $this->option('repository') ?? "{$repositoryDefault}Decorator",
         ];
     }
 
@@ -75,6 +76,7 @@ class GenerateRepositoryCommand extends Command
             "{{ namespace }}" => $this->options['namespace'],
             "{{ entity }}" => $this->options['entity'],
             "{{ repository }}" => $this->options['repository'],
+            "{{ decorator }}" => $this->options['decorator'],
         ];
 
         $fileContents = strtr($fileTemplate, $replacements);
@@ -99,7 +101,7 @@ class GenerateRepositoryCommand extends Command
 
                 $folder = ($folder !== "/" ? "/{$folder}" : "");
 
-                $fileName = ($file !== "contract" ? ucwords($file) : "") . $this->options['repository'] . ".php";
+                $fileName = ($file !== "contract" ? ucwords($file) : "") . ($file !== "cache" ? $this->options['decorator'] : $this->options['repository']) . ".php";
 
                 $path = "{$root}{$folder}";
 

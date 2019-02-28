@@ -58,7 +58,7 @@ class EloquentBaseRepository implements BaseRepository
      *
      * @param  string $slug
      *
-     * @return $model
+     * @return Builder|Model|object|null $model
      */
     public function findBySlug($slug)
     {
@@ -70,7 +70,7 @@ class EloquentBaseRepository implements BaseRepository
      *
      * @param  array $attributes
      *
-     * @return $model
+     * @return Builder|Model|object|null $model
      */
     public function firstByAttributes(array $attributes)
     {

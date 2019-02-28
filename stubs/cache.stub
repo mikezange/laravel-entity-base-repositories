@@ -5,7 +5,7 @@ namespace {{ namespace }}\Cache;
 use {{ namespace }}\{{ repository }};
 use MikeZange\LaravelEntityRepositories\Repositories\Cache\CacheBaseDecorator;
 
-class Cache{{ repository }} extends CacheBaseDecorator implements {{ repository }}
+class Cache{{ decorator }} extends CacheBaseDecorator implements {{ repository }}
 {
     public function __construct({{ repository }} $repository)
     {

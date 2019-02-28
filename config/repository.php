@@ -9,9 +9,9 @@ return [
     |
     |   Example:
     |   [
-    |     'contract' => App\Repositories\UserRepository::class,
+    |     'concrete' => App\Repositories\UserRepository::class,
     |     'entity' => \App\Entities\User::class,
-    |     'eloquent_repository' => App\Repositories\Eloquent\EloquentUserRepository::class,
+    |     'repository' => App\Repositories\Eloquent\EloquentUserRepository::class,
     |     'cache_decorator' => App\Repositories\Cache\CacheUserDecorator::class,
     |   ]
     |
