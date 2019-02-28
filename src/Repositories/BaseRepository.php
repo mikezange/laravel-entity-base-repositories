@@ -53,23 +53,6 @@ interface BaseRepository
      */
     public function allByAttributes(array $attributes, $orderBy = null, $sortOrder = 'asc');
 
-
-    /**
-     * Eager load relationships
-     * Should be chained with other methods such as get()
-     * @param $relations
-     * @return Builder
-     */
-    public function with($relations);
-
-    /**
-     * Prevent Eager loading of relationships
-     * Should be chained with other methods such as get()
-     * @param $relations
-     * @return Builder
-     */
-    public function without($relations);
-
     /**
      * Find the models with a relationship
      * @param $relationship
