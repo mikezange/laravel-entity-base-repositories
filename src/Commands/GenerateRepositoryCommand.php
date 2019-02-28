@@ -101,7 +101,7 @@ class GenerateRepositoryCommand extends Command
 
                 $folder = ($folder !== "/" ? "/{$folder}" : "");
 
-                $fileName = ($file !== "contract" ? ucwords($file) : "") . ($file !== "cache" ? $this->options['decorator'] : $this->options['repository']) . ".php";
+                $fileName = ($file !== "contract" ? ucwords($file) : "") . ($file === "cache" ? $this->options['decorator'] : $this->options['repository']) . ".php";
 
                 $path = "{$root}{$folder}";
 
