@@ -140,9 +140,15 @@ class EloquentBaseRepository implements BaseRepository
      *
      * @return \Illuminate\Contracts\Pagination\LengthAwarePaginator
      */
-    public function paginate($perPage = 15, $columns = ['*'], $pageName = 'page', $page = null)
+    public function paginate($perPage = 15, $orderBy = null, $orderDir = "asc", $columns = ['*'], $pageName = 'page', $page = null)
     {
-        return $this->queryBuilder()->paginate($perPage, $columns = ['*'], $pageName = 'page', $page = null);
+        $query = $this->queryBuilder();
+
+        if($orderBy){
+            $query = $query->orderBy($orderBy, $orderDir);
+        }
+
+        return $query->paginate($perPage, $columns = ['*'], $pageName = 'page', $page = null);
     }
 
     /**
