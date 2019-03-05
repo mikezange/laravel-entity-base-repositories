@@ -68,7 +68,7 @@ interface BaseRepository
      * @param null $page
      * @return \Illuminate\Pagination\LengthAwarePaginator
      */
-    public function paginate($perPage = 15, $columns = ['*'], $pageName = 'page', $page = null);
+    public function paginate($perPage = 15, $orderBy = null, $orderDir = "asc", $columns = ['*'], $pageName = 'page', $page = null);
 
     /**
      * Create a resource
