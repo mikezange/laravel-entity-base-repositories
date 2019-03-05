@@ -136,15 +136,15 @@ abstract class CacheBaseDecorator implements BaseRepository
     /**
      * @inheritdoc
      */
-    public function paginate($perPage = 15, $columns = ['*'], $pageName = 'page', $page = null)
+    public function paginate($perPage = 15, $orderBy = null, $orderDir = "asc", $columns = ['*'], $pageName = 'page', $page = null)
     {
         $tagIdentifier = json_encode($columns);
 
         return $this->cache
             ->tags([$this->entityName, 'global'])
-            ->remember("{$this->locale}.{$this->entityName}.find.{$perPage}.{$tagIdentifier}.{$pageName}.{$page}", $this->cacheTime,
-                function () use ($perPage, $columns, $pageName, $page) {
-                    return $this->repository->paginate($perPage, $columns, $pageName, $page);
+            ->remember("{$this->locale}.{$this->entityName}.find.{$perPage}.{$orderBy}.{$orderDir}.{$tagIdentifier}.{$pageName}.{$page}", $this->cacheTime,
+                function () use ($perPage, $columns, $orderBy, $orderDir, $pageName, $page) {
+                    return $this->repository->paginate($perPage, $orderBy, $orderDir, $columns, $pageName, $page);
                 }
             );
     }
